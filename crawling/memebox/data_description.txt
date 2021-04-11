@@ -1,0 +1,24 @@
+데이터 설명 
+
+1. memebox 사이트에서 BB크림,CC크림, 파운데이션 카테고리에 있는 제품들의 리뷰데이터 수집.
+2. 리뷰가 1개 이상 있는 모든 제품을 대상으로 선정. (다른 제품이 섞여 있는 기획전 제품 등은 제외)
+3. 1차로 제품데이터 크롤링
+	- 총 제품 개수 : 196개 / BB크림 - 55개, CC크림 - 5개, 파운데이션 - 135개 (제품페이지 안에 세부 제품 있는 경우 있음, 세부 제품 수랑 약간의 오차 발생 가능.) 
+	- 제품 데이터 속성 : 제품id, 브랜드, 제품명, 제품 별 리뷰 수, 제품별 평점
+	- 칼럼 명 : item_id , item_brand, item_name, num_of_reviews, item_score
+3. 2차로 제품 id로 제품별 리뷰 데이터 수집
+	- 총 리뷰 수 : 11240개 / BB크림 - 2147개, CC크림 - 57개, 파운데이션 - 9036개
+	- 리뷰 데이터 속성 : 제품id, 리뷰 텍스트, 리뷰 작성일, 리뷰 평점, 리뷰 좋아요 개수, 피부 타입, 재구매여부 
+	- 칼럼 명 : item_id, review_text, created_date, review_score, like_thumb_count, skin_type, repurchase
+4. 피부 타입과 재구매여부 등 선택적으로 입력받는 데이터는 공백을 포함한다.
+
+
+1차 제품 데이터 크롤링 코드 
+bb크림	: meme_bb_id_code.ipynb -> meme_bb_id.csv
+cc크림	: meme_cc_id_code.ipynb	-> meme_cc_id.csv
+파운데이션  : meme_found_id_code.ipynb	-> meme_cc_found.csv
+
+2차 리뷰 데이터 크롤링 코드 
+bb크림	: meme_bb_review_code.ipynb -> meme_bb_review.csv
+cc크림	: meme_cc_review_code.ipynb -> meme_cc_review.csv
+파운데이션  : meme_found_review_code.ipynb -> meme_found_review.csv
